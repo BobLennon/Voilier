@@ -4,8 +4,6 @@ IPDEST="127.0.0.1"
 PORT=5005
 lat=0
 longi=0
-longi1=0b11111111111111111111111111111111
-longi2=0b00000000000000000000000000000001
 sock=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
 sock.sendto(bytearray([88,2,30,90]),(IPDEST,PORT))
 
@@ -28,7 +26,9 @@ while True:
         longi=longi+(ord(data[10])<<16)
         longi=longi+(ord(data[11])<<8)
         longi=longi+ord(data[12])
+        if longi > 127
+                longi=(~longi)&0xFFFFFFFF
+                longi=longi+1
+                longi=longi*-1
         longi=longi/1000000
-        longi=longi+longi1
-        longi=longi+longi2
         print "Longitude = ",longi

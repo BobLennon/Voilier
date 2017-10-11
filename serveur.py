@@ -4,8 +4,6 @@ PORT=5005
 IPSERV="127.0.0.1"
 lat=48.409484
 longi=-4.487820
-longi1=0b11111111111111111111111111111111
-longi2=0b00000000000000000000000000000001
 a=0
 b=0
 c=0
@@ -28,8 +26,6 @@ while True:
         c=(lat>>8)&0XFF
         d=lat&0xFF
         longi=(int)(longi*1000000)
-        longi=longi+longi1
-        longi=longi+longi2
         e=(longi>>24)&0XFF
         f=(longi>>16)&0xFF
         g=(longi>>8)&0XFF
